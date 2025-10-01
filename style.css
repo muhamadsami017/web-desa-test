@@ -1,0 +1,792 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body dengan Background Image */
+body {
+  background: url("../images/desa-cisaat.jpg") no-repeat center center fixed; /* Ganti nama file foto */
+  background-size: cover; /* Cover seluruh layar */
+  background-color: rgba(
+    245,
+    245,
+    245,
+    0.7
+  ); /* Overlay samar dari warna asli */
+  backdrop-filter: blur(5px); /* Efek blur, adjust 3px-10px kalo perlu */
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container Utama dengan Overlay */
+.container {
+  max-width: none;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9); /* Overlay putih samar di konten */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  padding: 20px; /* Pastiin ada padding */
+}
+
+/* Centered Image */
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #1e7f7d 0%, #2a9d8f 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Tab Menu */
+.tab-menu {
+  width: 100%;
+  padding: 10px;
+  background: rgba(248, 249, 250, 0.9); /* Overlay samar */
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid #e9ecef;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.tab-btn {
+  padding: 15px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+  color: #1e7f7d;
+}
+
+.tab-btn.active {
+  color: #1e7f7d;
+  border-bottom-color: #1e7f7d;
+}
+
+.tab-content {
+  padding: 2rem;
+  min-height: 400px;
+  overflow-y: auto;
+  height: auto;
+  transition: height 0.5s ease;
+  background: rgba(255, 255, 255, 0.95); /* Overlay di konten tab */
+}
+
+.tab h2 {
+  text-align: center;
+}
+
+.tab-panel {
+  display: none;
+  height: auto;
+  overflow: auto;
+  transition: height 0.5s ease, opacity 0.5s ease;
+  padding: 15px; /* Tambah padding biar gak mepet */
+  background: rgba(255, 255, 255, 0.95); /* Overlay di panel */
+}
+
+.tab-panel.active {
+  display: block;
+  height: auto;
+  overflow: auto;
+}
+
+.tab-panel h2 {
+  color: #1e7f7d;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2a9d8f;
+}
+
+/* Card Accordion untuk Profil Desa */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9); /* Overlay samar di card */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-header {
+  width: 30%;
+  padding: 12px 15px;
+  background: linear-gradient(90deg, #e9c46a, #f4a261);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card-header:hover {
+  background: linear-gradient(90deg, #f4a261, #e76f51);
+}
+
+.card-header.active {
+  background: linear-gradient(90deg, #e76f51, #d62828);
+  color: white;
+}
+
+.card-header::after {
+  content: "▼";
+  position: absolute;
+  right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card-header.active::after {
+  transform: rotate(180deg);
+}
+
+.card-content {
+  display: none;
+  padding: 15px;
+  background: rgba(248, 249, 250, 0.95); /* Overlay samar */
+  border-top: 1px solid #ddd;
+  overflow-y: auto;
+  max-height: 50vh;
+  transition: max-height 0.5s ease;
+}
+
+.card-content.active {
+  display: block;
+}
+
+.card-content h3 {
+  color: #1e7f7d;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #2a9d8f;
+}
+
+/* Tabel Umum */
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table,
+.sejarah-pembangunan-table,
+.kepemilikan-ternak-table,
+.tempat-usaha-table,
+.mata-pencaharian-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.95); /* Overlay samar */
+  font-size: 0.9rem;
+}
+
+.custom-table th,
+.sejarah-pembangunan-table th,
+.kepemilikan-ternak-table th,
+.tempat-usaha-table th,
+.mata-pencaharian-table th {
+  background: linear-gradient(135deg, #1e7f7d 0%, #2a9d8f 100%);
+  color: white;
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #264653;
+}
+
+.custom-table td,
+.sejarah-pembangunan-table td,
+.kepemilikan-ternak-table td,
+.tempat-usaha-table td,
+.mata-pencaharian-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.custom-table tbody tr:nth-child(even),
+.sejarah-pembangunan-table tbody tr:nth-child(even),
+.kepemilikan-ternak-table tbody tr:nth-child(even),
+.tempat-usaha-table tr:nth-child(even),
+.mata-pencaharian-table tr:nth-child(even) {
+  background-color: rgba(248, 249, 250, 0.95); /* Overlay samar */
+}
+
+.custom-table tbody tr:hover,
+.sejarah-pembangunan-table tbody tr:hover,
+.kepemilikan-ternak-table tbody tr:hover,
+.tempat-usaha-table tr:hover,
+.mata-pencaharian-table tr:hover {
+  background-color: rgba(227, 242, 253, 0.95); /* Hover dengan overlay */
+  transition: background-color 0.2s ease;
+}
+
+/* Spesifik untuk Sejarah Pembangunan */
+.sejarah-pembangunan-table th:first-child,
+.sejarah-pembangunan-table td:first-child {
+  width: 150px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sejarah-pembangunan-table th:nth-child(2),
+.sejarah-pembangunan-table td:nth-child(2),
+.sejarah-pembangunan-table th:nth-child(3),
+.sejarah-pembangunan-table td:nth-child(3) {
+  width: 42.5%;
+}
+
+/* Spesifik untuk Kepemilikan Ternak */
+.kepemilikan-ternak-table th {
+  background: linear-gradient(135deg, #2a9d8f 0%, #264653 100%);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kepemilikan-ternak-table td:first-child {
+  background-color: rgba(248, 249, 250, 0.95); /* Overlay samar */
+  font-weight: 600;
+  color: #264653;
+  width: 60px;
+}
+
+.kepemilikan-ternak-table td:nth-child(2) {
+  text-align: left;
+  font-weight: 500;
+  color: #3a4e4c;
+  width: 40%;
+}
+
+.kepemilikan-ternak-table td:nth-child(3),
+.kepemilikan-ternak-table td:nth-child(4) {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.kepemilikan-ternak-table tbody tr:last-child {
+  background: linear-gradient(135deg, #d2e96a 0%, #88e751 100%);
+  font-weight: bold;
+  color: #264653;
+}
+
+.kepemilikan-ternak-table tbody tr:last-child:hover {
+  background: linear-gradient(135deg, #61f4e0 0%, #51bde7 100%);
+  color: white;
+}
+
+/* Spesifik untuk Tempat Usaha */
+.tempat-usaha-table th {
+  background-color: #4caf50;
+  text-transform: uppercase;
+}
+
+.tempat-usaha-table tr:hover {
+  background-color: rgba(64, 224, 208, 0.95); /* Turquoise dengan overlay */
+  transition: background-color 0.3s;
+}
+
+/* Gallery Styles */
+.gallery-container {
+  position: relative;
+  max-width: 100%;
+  margin: 2rem 0;
+}
+
+.gallery-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.9); /* Overlay samar */
+}
+
+.gallery-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-slide.active {
+  display: block;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background-color: #2a9d8f;
+}
+
+.gallery-prev,
+.gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.gallery-prev {
+  left: 10px;
+}
+
+.gallery-next {
+  right: 10px;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9); /* Overlay samar */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #264653;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.95); /* Overlay di input */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2a9d8f;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #1e7f7d 0%, #2a9d8f 100%);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* News Styles */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.news-card {
+  background: rgba(255, 255, 255, 0.9); /* Overlay samar */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-image {
+  height: 200px;
+  background: linear-gradient(45deg, #e9c46a, #f4a261);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #264653;
+  font-size: 3rem;
+}
+
+.news-content {
+  padding: 1.5rem;
+}
+
+.news-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-title {
+  color: #264653;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.news-excerpt {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .tab-btn.active {
+    border-bottom: none;
+    border-left: 3px solid #1e7f7d;
+  }
+
+  .gallery-slider {
+    height: 250px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    width: 100%;
+  }
+
+  body {
+    padding: 10px; /* Kurangin padding di HP */
+  }
+
+  .container {
+    padding: 10px; /* Kurangin padding container */
+  }
+}
+
+/* Styling Tombol Toggle Tabel Kepala Desa */
+#KepalaDesa {
+  width: auto;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #e9c46a, #f4a261);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#KepalaDesa:hover {
+  background: linear-gradient(90deg, #f4a261, #e76f51);
+}
+
+#KepalaDesa.active {
+  background: linear-gradient(90deg, #e76f51, #d62828);
+  color: white;
+}
+
+#KepalaDesa::after {
+  content: "▼";
+  transition: transform 0.3s ease;
+}
+
+#KepalaDesa.active::after {
+  transform: rotate(180deg);
+}
+
+/* Styling Tabel Kepala Desa */
+#tableKepalaDesa {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.95); /* Overlay samar */
+  margin-top: 1rem;
+  display: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#tableKepalaDesa th,
+#tableKepalaDesa td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#tableKepalaDesa th {
+  background: #e9c46a;
+  color: #333;
+}
+
+#tableKepalaDesa tr:nth-child(even) {
+  background: rgba(248, 249, 250, 0.95); /* Overlay samar */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  #KepalaDesa {
+    padding: 8px 12px;
+    min-width: 150px;
+  }
+
+  #tableKepalaDesa {
+    font-size: 0.9rem;
+  }
+}
+
+/* Styling Sub Accordion */
+.sub-accordion-btn {
+  width: 100%;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #f4a261, #e76f51);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.sub-accordion-btn:hover {
+  background: linear-gradient(90deg, #e76f51, #d62828);
+}
+
+.sub-accordion-btn.active {
+  background: linear-gradient(90deg, #d62828, #9b1d20);
+}
+
+.sub-accordion-btn::after {
+  content: "▼";
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.sub-accordion-btn.active::after {
+  transform: rotate(180deg);
+}
+
+.sub-accordion-content {
+  margin-top: 1rem;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95); /* Overlay samar */
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.sub-accordion-content h4 {
+  margin-bottom: 0.5rem;
+}
+
+.sub-accordion-content ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .sub-accordion-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .sub-accordion-content {
+    padding: 10px;
+  }
+}
+
+/* Styling Tabel Luas Wilayah */
+.tabel-luas-wilayah {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(249, 249, 249, 0.95); /* Overlay samar */
+  margin-top: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tabel-luas-wilayah td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.tabel-luas-wilayah tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.95); /* Overlay samar */
+}
+
+.tabel-luas-wilayah tr:nth-child(even) {
+  background: rgba(238, 242, 247, 0.95); /* Overlay samar */
+}
+
+/* Hover effect (opsional) */
+.tabel-luas-wilayah tr:hover {
+  background: rgba(224, 231, 255, 0.95); /* Overlay samar */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .tabel-luas-wilayah td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Styling Tabel Daftar UMKM */
+.tabel-daftar-umkm {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(249, 249, 249, 0.95); /* Overlay samar */
+  margin-top: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tabel-daftar-umkm th,
+.tabel-daftar-umkm td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.tabel-daftar-umkm th {
+  background: #e9c46a;
+  color: #333;
+  font-weight: 600;
+}
+
+.tabel-daftar-umkm td {
+  background: rgba(255, 255, 255, 0.95); /* Overlay samar */
+}
+
+.tabel-daftar-umkm tr:nth-child(even) {
+  background: rgba(238, 242, 247, 0.95); /* Overlay samar */
+}
+
+/* Styling Khusus Kolom ke-5 (Status) */
+.tabel-daftar-umkm td:nth-child(5) {
+  width: 15%;
+  text-align: center;
+  color: #333;
+}
+
+/* Hover Effect */
+.tabel-daftar-umkm tr:hover {
+  background: rgba(224, 231, 255, 0.95); /* Overlay samar */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .tabel-daftar-umkm th,
+  .tabel-daftar-umkm td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .tabel-daftar-umkm th:nth-child(5),
+  .tabel-daftar-umkm td:nth-child(5) {
+    width: 20%;
+  }
+}
