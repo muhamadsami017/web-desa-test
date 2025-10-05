@@ -46,7 +46,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
     // Buka email client
     window.location.href = mailtoLink;
-    alert('Pesan Anda akan dikirim ke ariyasin446@gmail.com. Terima kasih!');
+    alert('Pesan Anda akan dikirim ke desacisaat@gmail.go.id. Terima kasih!');
 
     // Reset form
     this.reset();
@@ -178,5 +178,6 @@ document.querySelectorAll(".sub-accordion-btn").forEach((button) => {
     this.classList.toggle("active");
   });
 });
+
 
 
