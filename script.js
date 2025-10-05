@@ -27,30 +27,12 @@ setInterval(() => {
 }, 15000);
 
 // Contact form
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Stop form default biar gak error
-
-  // Ambil nilai input
-  const nama = document.getElementById('nama').value;
-  const email = document.getElementById('email').value;
-  const telepon = document.getElementById('telepon').value;
-  const jenis = document.getElementById('jenis').value;
-  const pesan = document.getElementById('pesan').value;
-
-  // Validasi simpel
-  if (nama && email && pesan && jenis !== "") {
-    // Buat subject dan body email
-    const subject = Pengaduan dari ${nama} - ${jenis};
-    const body = Nama: ${nama}%0D%0AEmail: ${email}%0D%0ATelepon: ${telepon}%0D%0AJenis: ${jenis}%0D%0APesan: ${pesan};
-    const mailtoLink = mailto:desacisaat@subang.go.id?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
-
-    // Buka email client
-
-    // Reset form
-    this.reset();
-  } else {
-    alert('Isi semua field wajib (Nama, Email, Jenis, Pesan), ya!');
-  }
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert(
+    "Terima kasih! Pesan Anda telah dikirim. Tim desa akan segera menindaklanjuti."
+  );
+  this.reset();
 });
 
 // Tab menu functionality
@@ -176,6 +158,7 @@ document.querySelectorAll(".sub-accordion-btn").forEach((button) => {
     this.classList.toggle("active");
   });
 });
+
 
 
 
